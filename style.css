@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+body{
+    font-family: 'Inter', sans-serif;
+}
+.navbg{
+    background-color:rgba(16, 144, 216, 0.1);
+}
+
+.geogen{
+    color: rgba(17, 17, 17, 0.6);
+}
+input{
+    text-align: center;
+}
