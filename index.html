@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Geometry Genius</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="p-3 mt-3 container-fluid">
+    <nav class="navbar navbar-expand-lg rounded-3 navbg p-3 ">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="#">Interactive <br> <span class="fs-6 geogen">Geometry Genius</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <input type="button" value="Blog" class="btn btn-primary" onclick="blog();">
+            </div>
+        </div>
+    </nav>
+    <!-- main section -->
+    <section class="mt-5">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <!-- Triangle -->
+            <div class="col-md-3" >
+                <div onmouseover="triangleMouseOver()" onmouseout="triangleMouseOut()" class="card h-100" id="randomColor1">
+                    <img src="./images/triangle.png" class="card-img-top w-75 mx-auto p-3" alt="...">
+                    <div class="card-body text-center ">
+                        <h5 class="card-title fw-bold" id="triangle">Triangle</h5>
+                        <p>Area (A) = 0.5 x <span id="triangle-b">b</span> x <span id="triangle-h">h</span></p>
+                        <p class="card-text">
+                        <div class="d-flex w-75 mx-auto">
+                            <input class="w-50 " type="text" name="" id="triangleInput-b" placeholder="b">
+                            <p class="ms-2">cm</p>
+                            <input class="w-50 ms-2 " type="text" name="" id="triangleInput-h" placeholder="h">
+                            <p class="ms-2">cm</p>
+                        </div>
+                        <button type="submit" id="triangleBtn" class="btn btn-primary w-75 mt-2">Calculate</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Rectangle -->
+            <div class="col-md-3 ">
+                <div onmouseover="rectangleMouseOver()" onmouseout="rectangleMouseOut()" class="card h-100" id="randomColor2">
+                    <img src="./images/rectangle.png" class="card-img-top w-75 mx-auto p-3" alt="...">
+                    <div class="card-body mt-3 text-center">
+                        <h5 class="card-title fw-bold" id="rectangle">Rectangle</h5>
+                        <p> Area (A) = <span id="rectangle-w">w</span>  x <span id="rectangle-l">I</span></p>
+                        <p class="card-text">
+                        <div class="d-flex w-75 mx-auto">
+                            <input class="w-50" type="text" name="" id="rectangleInput-w" placeholder="w">
+                            <p class="ms-2">cm</p>
+                            <input class="w-50 ms-2" type="text" name="" id="rectangleInput-l" placeholder="I">
+                            <p class="ms-2">cm</p>
+                        </div>
+                        <button type="submit" id="rectangleBtn" class="btn btn-primary w-75 mt-2">Calculate</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Parallelogram -->
+            <div class="col-md-3">
+                <div onmouseover="parallelogramMouseOver()" onmouseout="parallelogramMouseOut()" class="card h-100" id="randomColor3">
+                    <img src="./images/parallelogram.png" class="card-img-top w-75 mx-auto p-3" alt="...">
+                    <div class="card-body mt-3 text-center">
+                        <h5 class="card-title fw-bold" id="parallelogram">Parallelogram</h5>
+                        <p>Area (A) = <span id="parallelogram-b">b</span> x <span id="parallelogram-h">h</span></p>
+                        <p class="card-text">
+                        <div class="d-flex w-75 mx-auto">
+                            <input class="w-50" type="text" name="" id="parallelogramInput-b" placeholder="b">
+                            <p class="ms-2">cm</p>
+                            <input class="w-50 ms-2" type="text" name="" id="parallelogramInput-h" placeholder="h">
+                            <p class="ms-2">cm</p>
+                        </div>
+                        <button type="submit" id="parallelogramBtn" class="btn btn-primary w-75 mt-2">Calculate</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Area Calculation -->
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold mt-2">Area Calculation</h5>
+                        <hr class="w-75 mx-auto">
+                        <p class="card-text"></p>
+                        <div>
+                            <table class="table table-sm ">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Area</th>
+                                        <th scope="col">Convert</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-container">
+                                    <!-- <tr>
+                                    <td>No</td>
+                                    <td>Name</td>
+                                    <td>Area</td>
+                                    <td>Button</td>
+                                </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Rhombus -->
+            <div class="col">
+                <div onmouseover="rhombusMouseOver()" onmouseout="rhombusMouseOut()" class="card h-100" id="randomColor4">
+                    <img src="./images/rhombus.png" class="card-img-top w-75 mx-auto p-3" alt="...">
+                    <div class="card-body mt-4 text-center">
+                        <h5 class="card-title fw-bold" id="rhombus">Rhombus</h5>
+                        <p> Area (A) = 0.5 x <span id="rhombus-d1">d<sub>1</sub></span> x <span id="rhombus-d2">d<sub>2</sub></span></p>
+                        <p class="card-text">
+                        <div class="d-flex w-75 mx-auto">
+                            <input class="w-50" type="text" name="" id="rhombusInput-d1" placeholder="d1">
+                            <p class="ms-2">cm</p>
+                            <input class="w-50 ms-2" type="text" name="" id="rhombusInput-d2" placeholder="d2">
+                            <p class="ms-2">cm</p>
+                        </div>
+                        <button type="submit" id="rhombusBtn" class="btn btn-primary w-75 mt-2">Calculate</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Pentagone -->
+            <div class="col">
+                <div onmouseover="pentagoneMouseOver()" onmouseout="pentagoneMouseOut()" class="card h-100" id="randomColor5">
+                    <img src="./images/pentagon.png" class="card-img-top w-75 mx-auto p-3" alt="...">
+                    <div class="card-body  text-center">
+                        <h5 class="card-title fw-bold" id="pentagone">Pentagone</h5>
+                        <p> Area (A) = 0.5 x <span id="pentagone-p">p</span> x <span id="pentagone-b">b</span></p>
+                        <p class="card-text">
+                        <div class="d-flex w-75 mx-auto">
+                            <input class="w-50" type="text" name="" id="pentagoneInput-p" placeholder="p">
+                            <p class="ms-2">cm</p>
+                            <input class="w-50 ms-2" type="text" name="" id="pentagoneInput-b" placeholder="b">
+                            <p class="ms-2">cm</p>
+                        </div>
+                        <button type="submit" id="pentagoneBtn" class="btn btn-primary w-75 mt-2">Calculate</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Ellipse -->
+            <div class="col">
+                <div onmouseover="ellipseMouseOver()" onmouseout="ellipseMouseOut()" class="card h-100" id="randomColor6">
+                    <img src="./images/ellipse.png" class="card-img-top w-full mx-auto p-3 " alt="...">
+                    <div class="card-body mt-3 text-center">
+                        <h5 class="card-title fw-bold" id="ellipse">Ellipse</h5>
+                        <p> Area (A) = π <span id="ellipse-a">a</span> <span id="ellipse-b">b</span> </p>
+                        <p class="card-text">
+                        <div class="d-flex w-75 mx-auto">
+                            <input class="w-50" type="text" name="" id="ellipseInput-a" placeholder="a">
+                            <p class="ms-2">cm</p>
+                            <input class="w-50 ms-2" type="text" name="" id="ellipseInput-b" placeholder="b">
+                            <p class="ms-2">cm</p>
+                        </div>
+                        <button type="submit" id="ellipseBtn" class="btn btn-primary w-75 mt-2">Calculate</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="geometry.js"></script>
+    <script src="randomColor.js"></script>
+</body>
+
+</html>
